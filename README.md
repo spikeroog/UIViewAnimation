@@ -34,13 +34,13 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
 ```
 `CAKeyframeAnimation`的三大属性：
 ```
-`values`:NSArray对象，里面的元素称为”关键帧”(`keyframe`)。动画对象会在指定的时间(`duration`)内，依次显示`values`数组中的每一个关键帧
+***`values`***:NSArray对象，里面的元素称为”关键帧”(`keyframe`)。动画对象会在指定的时间(`duration`)内，依次显示`values`数组中的每一个关键帧
 ```
 ```
-`path`:可以设置一个`CGPathRef\CGMutablePathRef`,让层跟着路径移动。`path`只对`CALayer`的`anchorPoint`和`position`起作用。如果你设置了`path`，那么`values`将被忽略
+***`path`***:可以设置一个`CGPathRef\CGMutablePathRef`,让层跟着路径移动。`path`只对`CALayer`的`anchorPoint`和`position`起作用。如果你设置了`path`，那么`values`将被忽略
 ```
 ```
-`keyTimes`:可以为对应的关键帧指定对应的时间点,其取值范围为[0,1],`keyTimes`中的每一个时间值都对应`values`中的每一帧.当`keyTimes`没有设置的时候,各个关键帧的时间是平分的
+***`keyTimes`***:可以为对应的关键帧指定对应的时间点,其取值范围为[0,1],`keyTimes`中的每一个时间值都对应`values`中的每一帧.当`keyTimes`没有设置的时候,各个关键帧的时间是平分的
 ```
 
 * 使用Core Animation动画`CAKeyframeAnimation`，利用UIView的layer层实现动画，附上代码:
