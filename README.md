@@ -38,7 +38,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
   * `keyTimes`: 可以为对应的关键帧指定对应的时间点，其取值范围为[0,1]，keyTimes中的每一个时间值都对应values中的每一帧。当keyTimes没有设置的时候，各个关键帧的时间是平分的。
 
 ## Spring Animation
-系统级动画体验, 以下是Spring Animation动画的API：
+系统级动画体验, 以下是`Spring Animation`动画的API：
 ```Objc
 + (void)animateWithDuration:(NSTimeInterval)duration
                       delay:(NSTimeInterval)delay
@@ -52,7 +52,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
 * `initialSpringVelocity`则表示初始的速度，数值越大一开始移动越快。
 
 ## 总结
-我们需要将Spring Animation和Core Animation或CGAffineTransform任意一种配合使用，以达到流畅动画的实现，附上代码:
+我们需要将`Spring Animation`和`Core Animation`或`CGAffineTransform`任意一种配合使用，以达到流畅动画的实现，附上代码:
 #### 弹出：<br>
 ```Objc
     [popInputView addScaleAnimationWithDuration:0.35f];
