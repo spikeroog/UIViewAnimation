@@ -34,7 +34,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
 ```
 `CAKeyframeAnimation`的三大属性：
 ```
-***values***:NSArray对象，里面的元素称为”关键帧”(`keyframe`)。动画对象会在指定的时间(`duration`)内，依次显示`values`数组中的每一个关键帧
+*values* :NSArray对象，里面的元素称为”关键帧”(`keyframe`)。动画对象会在指定的时间(`duration`)内，依次显示`values`数组中的每一个关键帧
 ```
 ```
 ***path***:可以设置一个`CGPathRef\CGMutablePathRef`,让层跟着路径移动。`path`只对`CALayer`的`anchorPoint`和`position`起作用。如果你设置了`path`，那么`values`将被忽略
