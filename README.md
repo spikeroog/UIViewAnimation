@@ -60,8 +60,7 @@ scaleAnimation.fillMode = kCAFillModeForwards;
 ```
 
 ## Spring Animation
-系统级别动画体验
-这是Spring Animation动画的API
+系统级动画体验, 以下是Spring Animation动画的API
 ```Objc
 + (void)animateWithDuration:(NSTimeInterval)duration
                       delay:(NSTimeInterval)delay
@@ -73,3 +72,51 @@ scaleAnimation.fillMode = kCAFillModeForwards;
 ```
 * `usingSpringWithDamping`的范围为0.0f到1.0f，数值越小「弹簧」的振动效果越明显。
 * `initialSpringVelocity`则表示初始的速度，数值越大一开始移动越快。
+
+## 总结
+我们需要将Spring Animation和Core Animation或CGAffineTransform任意一种配合使用，以达到流畅动画的实现，以下附上代码:
+#### 弹出：<br>
+```Objc
+    [popInputView addScaleAnimationWithDuration:0.35f];
+    [UIView animateWithDuration:0.35f delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        // 在动画过程中禁止遮罩视图响应用户手势
+        popInputView.maskView.userInteractionEnabled = NO;
+    } completion:^(BOOL finished) {
+        // 在动画结束后允许遮罩视图响应用户手势
+        popInputView.maskView.userInteractionEnabled = YES;
+    }];
+```
+```Objc
+#pragma mark - 加载动画
+- (void)addScaleAnimationWithDuration:(NSTimeInterval)duration {
+    CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.values = @[@0.5, @1.15, @0.9, @1.0];
+    scaleAnimation.duration = duration;
+    scaleAnimation.removedOnCompletion = NO;
+    scaleAnimation.fillMode = kCAFillModeForwards;
+    [self.layer addAnimation:scaleAnimation forKey:nil];
+}
+```
+#### 收起：<br>
+```Objc
+    [self removeScaleAnimationWithDuration:0.20f];
+    [UIView animateWithDuration:0.35f delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        //在动画过程中禁止遮罩视图响应用户手势
+        _maskView.userInteractionEnabled = NO;
+        _maskView.alpha = 0.01;
+    } completion:^(BOOL finished) {
+        [_maskView removeFromSuperview];
+        [self removeFromSuperview];
+    }];
+ ```
+ ```
+ #pragma mark - 收起动画
+ - (void)removeScaleAnimationWithDuration:(NSTimeInterval)duration {
+    CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.values = @[@1.0, @1.3, @0.01];
+    scaleAnimation.duration = duration;
+    scaleAnimation.removedOnCompletion = NO;
+    scaleAnimation.fillMode = kCAFillModeForwards;
+    [self.layer addAnimation:scaleAnimation forKey:nil];
+}
+```
