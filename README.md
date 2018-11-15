@@ -58,3 +58,6 @@ scaleAnimation.removedOnCompletion = NO;
 scaleAnimation.fillMode = kCAFillModeForwards;
 [UIView.layer addAnimation:scaleAnimation forKey:nil];
 ```
+
+## Spring Animation
+系统级别动画
