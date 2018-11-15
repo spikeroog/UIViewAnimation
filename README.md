@@ -109,8 +109,8 @@ scaleAnimation.fillMode = kCAFillModeForwards;
         [self removeFromSuperview];
     }];
  ```
- ```
- #pragma mark - 收起动画
+ ```Objc
+ #pragma mark - 移除动画
  - (void)removeScaleAnimationWithDuration:(NSTimeInterval)duration {
     CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
     scaleAnimation.values = @[@1.0, @1.3, @0.01];
