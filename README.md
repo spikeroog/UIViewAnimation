@@ -68,11 +68,11 @@ scaleAnimation.fillMode = kCAFillModeForwards;
 * `initialSpringVelocity`则表示初始的速度，数值越大一开始移动越快。
 
 ## 总结
-我们需要将Spring Animation和Core Animation或CGAffineTransform任意一种配合使用，以达到流畅动画的实现，以下附上代码:
+我们需要将Spring Animation和Core Animation或CGAffineTransform任意一种配合使用，以达到流畅动画的实现，附上代码:
 #### 弹出：<br>
 ```Objc
     [popInputView addScaleAnimationWithDuration:0.35f];
-    [UIView animateWithDuration:0.35f delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.35f delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:0.8f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         // 在动画过程中禁止遮罩视图响应用户手势
         popInputView.maskView.userInteractionEnabled = NO;
     } completion:^(BOOL finished) {
@@ -84,7 +84,7 @@ scaleAnimation.fillMode = kCAFillModeForwards;
 #pragma mark - 加载动画
 - (void)addScaleAnimationWithDuration:(NSTimeInterval)duration {
     CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    scaleAnimation.values = @[@0.5, @1.15, @0.9, @1.0];
+    scaleAnimation.values = @[@0.5f, @1.15, @0.9f, @1.0];
     scaleAnimation.duration = duration;
     scaleAnimation.removedOnCompletion = NO;
     scaleAnimation.fillMode = kCAFillModeForwards;
