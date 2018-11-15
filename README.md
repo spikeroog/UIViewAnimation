@@ -102,3 +102,95 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
     [self.layer addAnimation:scaleAnimation forKey:nil];
 }
 ```
+## 异步截图并将图片高斯模糊
+使用到了第三方库GPUImage，这个库实现的高斯模糊处理时间最短.
+```
+/**
+异步截图并将图片高斯模糊
+ */
+- (void)blurImageHandle
+{
+   
+//    dispatch_queue_t queue = dispatch_queue_create("ck", DISPATCH_QUEUE_SERIAL);  // 异步串行队列
+    dispatch_queue_t queue = dispatch_queue_create("ck", DISPATCH_QUEUE_CONCURRENT);  // 异步并发队列
+    dispatch_async(queue, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImage *screenImage = [self makeImageWithDrawImageSize:CGSizeMake(kScreenWidth, kScreenHeight)];
+            self.backImageView.image = [self applyGaussianBlur:screenImage];
+        });
+    });
+}
+```
+```
+/**
+ 图片进行高斯模糊
+ @param image <#image description#>
+ @return <#return value description#>
+ */
+- (UIImage *)applyGaussianBlur:(UIImage *)image
+{
+    GPUImageGaussianBlurFilter *filter = [[GPUImageGaussianBlurFilter alloc] init];
+//    filter.texelSpacingMultiplier = 10;
+    filter.blurRadiusInPixels = 5;
+    [filter forceProcessingAtSize:image.size];
+    GPUImagePicture *pic = [[GPUImagePicture alloc] initWithImage:image];
+    [pic addTarget:filter];
+    [pic processImage];
+    [filter useNextFrameForImageCapture];
+    return [filter imageFromCurrentFramebuffer];
+}
+```
+```
+/**
+ 获取屏幕截图
+ @param size <#size description#>
+ @return <#return value description#>
+ */
+- (UIImage *)makeImageWithDrawImageSize:(CGSize)size
+{
+    CGSize imageSize = CGSizeZero;
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        imageSize = screenSize;
+    } else {
+        imageSize = CGSizeMake(screenSize.height, screenSize.width);
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(imageSize, false, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    if (context) {
+        for (UIWindow *window in [UIApplication sharedApplication].windows) {
+            CGContextSaveGState(context);
+            CGContextTranslateCTM(context, window.center.x, window.center.y);
+            CGContextConcatCTM(context, window.transform);
+            CGContextTranslateCTM(context, -window.bounds.size.width * window.layer.anchorPoint.x, -window.bounds.size.height * window.layer.anchorPoint.y);
+            
+            if (orientation == UIInterfaceOrientationLandscapeLeft) {
+                CGContextRotateCTM(context, M_PI_4);
+                CGContextTranslateCTM(context, 0, -imageSize.width);
+            } else if (orientation == UIInterfaceOrientationLandscapeRight) {
+                CGContextRotateCTM(context, - M_PI_2);
+                CGContextTranslateCTM(context, -imageSize.height, 0);
+            } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
+                CGContextRotateCTM(context, M_PI);
+                CGContextTranslateCTM(context, -imageSize.width, -imageSize.height);
+            }
+            
+            if ([window respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+                [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:YES];
+            } else {
+                [window.layer renderInContext:context];
+            }
+            
+            CGContextRestoreGState(context);
+        }
+    }
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+```
