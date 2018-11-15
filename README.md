@@ -102,8 +102,8 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
     [self.layer addAnimation:scaleAnimation forKey:nil];
 }
 ```
-## 异步截图并将图片高斯模糊
-使用到了第三方库GPUImage，这个库实现的高斯模糊处理时间最短.
+## 异步屏幕截图并将图片高斯模糊
+使用到了第三方库`GPUImage`，这个库实现的高斯模糊处理时间最短.
 ```Objc
 /**
 异步截图并将图片高斯模糊
