@@ -82,10 +82,10 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
 #### 收起：<br>
 ```Objc
     [self removeScaleAnimationWithDuration:0.20f];
-    [UIView animateWithDuration:0.35f delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.35f delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:0.8f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         //在动画过程中禁止遮罩视图响应用户手势
         _maskView.userInteractionEnabled = NO;
-        _maskView.alpha = 0.01;
+        _maskView.alpha = 0.01f;
     } completion:^(BOOL finished) {
         [_maskView removeFromSuperview];
         [self removeFromSuperview];
@@ -95,7 +95,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
  #pragma mark - 移除动画
  - (void)removeScaleAnimationWithDuration:(NSTimeInterval)duration {
     CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    scaleAnimation.values = @[@1.0, @1.3, @0.01];
+    scaleAnimation.values = @[@1.0f, @1.3f, @0.01f];
     scaleAnimation.duration = duration;
     scaleAnimation.removedOnCompletion = NO;
     scaleAnimation.fillMode = kCAFillModeForwards;
