@@ -22,17 +22,21 @@ CGAffineTransformMakeRotation(CGFloat angle)
 UIView.transform ＝ CGAffineTransformIdentity;
 ```
 ## Core Animation
-Core Animation是一组非常强大的动画处理API,使用它能做出很多优雅的动画效果。能用的动画类有4个子类：`CABasicAnimation`、`CAKeyframeAnimation`、`CATransition`、`CAAnimationGroup`。
+`Core Animation`是一组非常强大的动画处理API,使用它能做出很多优雅的动画效果。能用的动画类有4个子类：`CABasicAnimation`、`CAKeyframeAnimation`、`CATransition`、`CAAnimationGroup`。
 ```
-通过调用CALayer的addAnimation:forKey:增加动画到层(CALayer)中,这样就能触发动画了.
+通过调用CALayer的addAnimation:forKey:增加动画到层(CALayer)中,这样就能触发动画.
 ```
 ```
 通过调用removeAnimationForKey:可以停止层中的动画.
+```
+```
+Core Animation的动画执行过程都是在后台操作的,不会阻塞主线程.
 ```
 * 使用Core Animation动画`CAKeyframeAnimation`，利用UIView的layer层实现动画，附上代码:
 ```Objc
 // `@"transform.translation"`,`@"transform.scale"`,`@"transform.rotation"`
 CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+// 设置关键帧，可实现先大后小的变化
 scaleAnimation.values = @[@0.5, @1.15, @0.9, @1.0];
 scaleAnimation.duration = duration;
 // 重复次数 默认为1
