@@ -33,28 +33,12 @@ UIView.transform ＝ CGAffineTransformIdentity;
 Core Animation的动画执行过程都是在后台操作的,不会阻塞主线程.
 ```
 * `CAKeyframeAnimation`的三大属性：
-  * `values` :NSArray对象，里面的元素称为”关键帧”(keyframe)。动画对象会在指定的时间(duration)内，依次显示values数组中的每一个关键帧
-  * `path`:可以设置一个CGPathRef\CGMutablePathRef,让层跟着路径移动。path只对CALayer的anchorPoint和position起作用。如果你设置了path，那么values将被忽略
-  * `keyTimes`:可以为对应的关键帧指定对应的时间点,其取值范围为[0,1],keyTimes中的每一个时间值都对应values中的每一帧.当keyTimes没有设置的时候,各个关键帧的时间是平分的
-
-* 使用Core Animation动画`CAKeyframeAnimation`，利用UIView的layer层实现动画，附上代码:
-```Objc
-// `@"transform.translation"`,`@"transform.scale"`,`@"transform.rotation"`
-CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-// 设置关键帧，可实现先大后小的变化
-scaleAnimation.values = @[@0.5, @1.15, @0.9, @1.0];
-scaleAnimation.duration = duration;
-// 重复次数 默认为1
-scaleAnimation.repeatCount = 1;
-// 设置是否原路返回默认为NO
-scaleAnimation.autoreverses = NO;
-scaleAnimation.removedOnCompletion = NO;
-scaleAnimation.fillMode = kCAFillModeForwards;
-[UIView.layer addAnimation:scaleAnimation forKey:nil];
-```
+  * `values` : NSArray对象，里面的元素称为”关键帧”(keyframe)。动画对象会在指定的时间(duration)内，依次显示values数组中的每一个关键帧。
+  * `path`: 可以设置一个CGPathRef\CGMutablePathRef，让层跟着路径移动。path只对CALayer的anchorPoint和position起作用。如果你设置了path，那么values将被忽略。
+  * `keyTimes`: 可以为对应的关键帧指定对应的时间点，其取值范围为[0,1]，keyTimes中的每一个时间值都对应values中的每一帧。当keyTimes没有设置的时候，各个关键帧的时间是平分的。
 
 ## Spring Animation
-系统级动画体验, 以下是Spring Animation动画的API
+系统级动画体验, 以下是Spring Animation动画的API：
 ```Objc
 + (void)animateWithDuration:(NSTimeInterval)duration
                       delay:(NSTimeInterval)delay
@@ -86,6 +70,10 @@ scaleAnimation.fillMode = kCAFillModeForwards;
     CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
     scaleAnimation.values = @[@0.5f, @1.15, @0.9f, @1.0];
     scaleAnimation.duration = duration;
+    // 重复次数 默认为1
+    scaleAnimation.repeatCount = 1;
+    // 设置是否原路返回默认为NO
+    scaleAnimation.autoreverses = NO;
     scaleAnimation.removedOnCompletion = NO;
     scaleAnimation.fillMode = kCAFillModeForwards;
     [self.layer addAnimation:scaleAnimation forKey:nil];
