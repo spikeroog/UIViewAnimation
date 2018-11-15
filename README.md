@@ -51,7 +51,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
 * `usingSpringWithDamping`的范围为0.0f到1.0f，数值越小「弹簧」的振动效果越明显。
 * `initialSpringVelocity`则表示初始的速度，数值越大一开始移动越快。
 
-## 总结
+## 配套使用
 我们需要将`Spring Animation`和`Core Animation`或`CGAffineTransform`任意一种配合使用，以达到流畅动画的实现，附上代码:
 #### 弹出：<br>
 ```Objc
