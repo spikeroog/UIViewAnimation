@@ -4,8 +4,17 @@
 视图动画在APP中是很常见的，一个流畅且自然的视图弹出收起动画，可以给用户提供轻松的视觉体验。一般情况下，APP中的动画都是固定某种形式，以便养成用户视觉习惯，建议不要东边一种动画，西边一种动画，这样给用户的体验很不好。
 ## 如何实现
 * `移动`使用到了`CGAffineTransform`，使用`UIView`的`transform`属性实现动画。
-  ```ObJc
-  CGAffineTransformMakeTranslation(CGFloat tx, CGFloat ty)（平移:设置平移量）
-  ```
-  * CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)（缩放:设置缩放比例）仅通过设置缩放比例就可实现视图扑面而来和缩进频幕的效果。
-  * CGAffineTransformMakeRotation(CGFloat angle)（旋转:设置旋转角度
+```ObJc
+CGAffineTransformMakeTranslation(CGFloat tx, CGFloat ty)（平移:设置平移量）
+```
+```ObJc
+CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)（缩放:设置缩放比例）仅通过设置缩放比例就可实现视图扑面而来和缩进频幕的效果。
+```
+```ObJc
+CGAffineTransformMakeRotation(CGFloat angle)（旋转:设置旋转角度
+```
+以上3个都是针对视图的原定最初位置的中心点为起始参照进行相应操作的，在操作结束之后可对设置量进行还原：<br>
+```ObJc
+// 还原之前的动画
+view.transform＝CGAffineTransformIdentity;
+```
