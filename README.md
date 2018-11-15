@@ -23,9 +23,15 @@ UIView.transform ＝ CGAffineTransformIdentity;
 ```
 ## Core Animation
 Core Animation是一组非常强大的动画处理API,使用它能做出很多优雅的动画效果。能用的动画类有4个子类：`CABasicAnimation`、`CAKeyframeAnimation`、`CATransition`、`CAAnimationGroup`。
-
-* 使用Core Animation动画`CAKeyframeAnimation`，利用UIView的Layer`@"transform.translation"`,`@"transform.scale"`,`@"transform.rotation"`实现动画，附上代码:
+```
+通过调用CALayer的addAnimation:forKey:增加动画到层(CALayer)中,这样就能触发动画了.
+```
+```
+通过调用removeAnimationForKey:可以停止层中的动画.
+```
+* 使用Core Animation动画`CAKeyframeAnimation`，利用UIView的layer层实现动画，附上代码:
 ```Objc
+// `@"transform.translation"`,`@"transform.scale"`,`@"transform.rotation"`
 CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
 scaleAnimation.values = @[@0.5, @1.15, @0.9, @1.0];
 scaleAnimation.duration = duration;
