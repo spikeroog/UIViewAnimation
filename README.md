@@ -5,16 +5,19 @@
 ## 如何实现
 * `移动`使用到了`CGAffineTransform`，使用`UIView`的`transform`属性实现动画。
 ```ObJc
-CGAffineTransformMakeTranslation(CGFloat tx, CGFloat ty)（平移:设置平移量）
+// 平移:设置平移量
+CGAffineTransformMakeTranslation(CGFloat tx, CGFloat ty)
 ```
 ```ObJc
-CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)（缩放:设置缩放比例）仅通过设置缩放比例就可实现视图扑面而来和缩进频幕的效果。
+// 缩放:设置缩放比例
+CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)
 ```
 ```ObJc
-CGAffineTransformMakeRotation(CGFloat angle)（旋转:设置旋转角度
+// 旋转:设置旋转角度
+CGAffineTransformMakeRotation(CGFloat angle)
 ```
 以上3个都是针对视图的原定最初位置的中心点为起始参照进行相应操作的，在操作结束之后可对设置量进行还原：<br>
 ```ObJc
 // 还原之前的动画
-view.transform＝CGAffineTransformIdentity;
+view.transform ＝ CGAffineTransformIdentity;
 ```
