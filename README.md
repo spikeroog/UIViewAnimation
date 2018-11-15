@@ -3,7 +3,7 @@
 ## 何时需要用到视图动画
 视图动画在APP中是很常见的，一个流畅且自然的视图弹出收起动画，可以给用户提供轻松的视觉体验。一般情况下，APP中的动画都是固定某种形式，以便养成用户视觉习惯，建议不要东边一种动画，西边一种动画，这样给用户的体验很不好。
 ## 如何实现
-* `移动`使用到了`CGAffineTransform`，使用`UIView`的`transform`属性实现动画。
+* 使用`CGAffineTransform`，利用`UIView`的`transform`属性实现动画。
 ```ObJc
 // 平移:设置平移量
 CGAffineTransformMakeTranslation(CGFloat tx, CGFloat ty)
@@ -20,4 +20,14 @@ CGAffineTransformMakeRotation(CGFloat angle)
 ```ObJc
 // 还原之前的动画
 view.transform ＝ CGAffineTransformIdentity;
+```
+## 其他动画实现
+* 使用UIViewLayer层动画`CAKeyframeAnimation`，利用`@"transform.translation"`,`@"transform.scale"`,`@"transform.rotation"`实现动画，附上代码。
+```ObJc
+CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+scaleAnimation.values = @[@0.5, @1.15, @0.9, @1.0];
+scaleAnimation.duration = duration;
+scaleAnimation.removedOnCompletion = NO;
+scaleAnimation.fillMode = kCAFillModeForwards;
+[self.layer addAnimation:scaleAnimation forKey:nil];
 ```
