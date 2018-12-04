@@ -108,8 +108,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
 /**
 异步截图并将图片高斯模糊
  */
-- (void)blurImageHandle
-{
+- (void)blurImageHandle {
    
 //    dispatch_queue_t queue = dispatch_queue_create("ck", DISPATCH_QUEUE_SERIAL);  // 异步串行队列
     dispatch_queue_t queue = dispatch_queue_create("ck", DISPATCH_QUEUE_CONCURRENT);  // 异步并发队列
@@ -127,8 +126,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
  @param image <#image description#>
  @return <#return value description#>
  */
-- (UIImage *)applyGaussianBlur:(UIImage *)image
-{
+- (UIImage *)applyGaussianBlur:(UIImage *)image {
     GPUImageGaussianBlurFilter *filter = [[GPUImageGaussianBlurFilter alloc] init];
 //    filter.texelSpacingMultiplier = 10;
     filter.blurRadiusInPixels = 5;
@@ -146,8 +144,7 @@ Core Animation的动画执行过程都是在后台操作的,不会阻塞主线�
  @param size <#size description#>
  @return <#return value description#>
  */
-- (UIImage *)makeImageWithDrawImageSize:(CGSize)size
-{
+- (UIImage *)makeImageWithDrawImageSize:(CGSize)size {
     CGSize imageSize = CGSizeZero;
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
