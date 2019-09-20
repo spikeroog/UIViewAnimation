@@ -1,0 +1,220 @@
+PODS:
+  - AAChartKit (2.1.6)
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - BaiduMapKit (4.4.2)
+  - BGFMDB (2.0.13):
+    - BGFMDB/BG (= 2.0.13)
+    - BGFMDB/FMDB (= 2.0.13)
+  - BGFMDB/BG (2.0.13):
+    - BGFMDB/FMDB
+  - BGFMDB/FMDB (2.0.13)
+  - BMKLocationKit (1.7.0)
+  - DZNEmptyDataSet (1.8.1)
+  - FLAnimatedImage (1.0.12)
+  - FLEX (3.0.0)
+  - HHTransition (1.2.0)
+  - IQKeyboardManager (6.4.0)
+  - JCore (2.1.1)
+  - JJException (0.2.5):
+    - JJException/All (= 0.2.5)
+  - JJException/All (0.2.5):
+    - JJException/ARC
+    - JJException/DeallocBlock
+    - JJException/Main
+    - JJException/MRC
+    - JJException/Swizzle
+  - JJException/ARC (0.2.5):
+    - JJException/DeallocBlock
+    - JJException/Main
+    - JJException/Swizzle
+  - JJException/DeallocBlock (0.2.5)
+  - JJException/Main (0.2.5)
+  - JJException/MRC (0.2.5):
+    - JJException/Main
+    - JJException/Swizzle
+  - JJException/Swizzle (0.2.5)
+  - JPush (3.2.2):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
+  - MJExtension (3.1.0)
+  - MJRefresh (3.2.0)
+  - PPNetworkHelper (0.8.1):
+    - AFNetworking (~> 3.2.0)
+    - YYCache (~> 1.0.4)
+  - ReactiveObjC (3.1.1)
+  - RTRootNavigationController (0.7.1):
+    - RTRootNavigationController/Core (= 0.7.1)
+  - RTRootNavigationController/Core (0.7.1)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - SGPagingView (1.6.7)
+  - TLAnimationTabBar (1.0.2):
+    - TLAnimationTabBar/Config (= 1.0.2)
+  - TLAnimationTabBar/Config (1.0.2)
+  - TZImagePickerController (3.2.1)
+  - UMengAnalytics (4.2.4)
+  - UMengUShare/Core (6.4.8.2):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.8.2)
+  - UMengUShare/Social/QQ (6.4.8.2):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedQQ (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedSina (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/Sina (6.4.8.2):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedSina
+  - UMengUShare/UI (6.4.8.2):
+    - UMengUShare/Core
+  - UMessage (1.4.0)
+  - XHLaunchAd (3.9.8):
+    - FLAnimatedImage (~> 1.0.12)
+  - YBImageBrowser (3.0.1):
+    - YBImageBrowser/Core (= 3.0.1)
+  - YBImageBrowser/Core (3.0.1):
+    - SDWebImage (~> 5.0.0)
+    - YYImage
+  - YBImageBrowser/Video (3.0.1):
+    - YBImageBrowser/Core
+  - YYCache (1.0.4)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - AAChartKit
+  - BaiduMapKit (~> 4.4.2)
+  - BGFMDB
+  - BMKLocationKit (~> 1.7.0)
+  - DZNEmptyDataSet
+  - FLEX
+  - HHTransition
+  - IQKeyboardManager
+  - JJException
+  - JPush (~> 3.2.2)
+  - Masonry
+  - MBProgressHUD
+  - MJExtension
+  - MJRefresh
+  - PPNetworkHelper
+  - ReactiveObjC
+  - RTRootNavigationController
+  - SDCycleScrollView
+  - SDWebImage
+  - SGPagingView
+  - TLAnimationTabBar
+  - TZImagePickerController
+  - UMengAnalytics (~> 4.2.4)
+  - UMengUShare/Social/QQ
+  - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/Social/Sina
+  - UMengUShare/UI
+  - UMessage (~> 1.4.0)
+  - XHLaunchAd (~> 3.9.8)
+  - YBImageBrowser (~> 3.0.1)
+  - YBImageBrowser/Video (~> 3.0.1)
+  - YYCategories
+  - YYText
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AAChartKit
+    - AFNetworking
+    - BaiduMapKit
+    - BGFMDB
+    - BMKLocationKit
+    - DZNEmptyDataSet
+    - FLAnimatedImage
+    - FLEX
+    - HHTransition
+    - IQKeyboardManager
+    - JCore
+    - JJException
+    - JPush
+    - Masonry
+    - MBProgressHUD
+    - MJExtension
+    - MJRefresh
+    - PPNetworkHelper
+    - ReactiveObjC
+    - RTRootNavigationController
+    - SDCycleScrollView
+    - SDWebImage
+    - SGPagingView
+    - TLAnimationTabBar
+    - TZImagePickerController
+    - UMengAnalytics
+    - UMengUShare
+    - UMessage
+    - XHLaunchAd
+    - YBImageBrowser
+    - YYCache
+    - YYCategories
+    - YYImage
+    - YYText
+
+SPEC CHECKSUMS:
+  AAChartKit: adc0da2830cfc7dd8e9a0a706413eec9598e004d
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  BaiduMapKit: 11acde2e7c06e31b7de60b323880a5eb7c4dccb6
+  BGFMDB: 48e6823027232402a678acc7f71484b1fc9171d0
+  BMKLocationKit: cbe7a93bc288465e12961e65aa3f11a8f9da3bb1
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FLEX: d66c759bce0f6ebbbf472c742380874d846f2883
+  HHTransition: 35c278fbe8374cdf0931a805aef066d52256a897
+  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  JCore: 4072327557f0b83cc22dd4041f2f839740c0077b
+  JJException: 643c594b0fb3427c5cd1cf09e2483829ce550a28
+  JPush: 0e9088c85c73275629facc311fe5992dfac36eeb
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJExtension: 6b69b3bef2864fd550ce1a184eda219e321209d2
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  PPNetworkHelper: e893191a73665e9c496c2887fd5ceece9e930bb8
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  RTRootNavigationController: afa6913402be26f8326f7f37fc1550aa67baddcc
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  SGPagingView: 21152cbb9e25a7259ea2415b028c22f55f362ea2
+  TLAnimationTabBar: 1660320196ddb61f3294def2c5a52728ab9ec323
+  TZImagePickerController: bf4c57b98d8707fce41ea6be872414a71c7a8c9d
+  UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
+  UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
+  UMessage: f1619a28fdf03190050a67280e181dd422a980dc
+  XHLaunchAd: 45048592af01aa501c9d2d0c45e95ca74c4d0596
+  YBImageBrowser: 5cf2441341caadec89e29a964b7a1668cc5ad02a
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: 8eeed7acccb3ce8ddce4f4b955da1fad0ad4dec2
+
+COCOAPODS: 1.7.4
